@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HAPPERN Experiment</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body>
+    <div id="fullPageImage">
+        <img id="image" src="./images/espas_00.png">
+    </div>
+
+
+    <script>
+        'use strict';
+        // next level behaviour
+        document.getElementById('image').addEventListener('click', (event) => {
+            if (image.src.match("./images/espas_00.png"))
+                image.src = "./images/espas_011-intro.png";
+            if (image.src.match("./images/espas_014-dogru.png"))
+                image.src = "./images/espas_021-intro.png";
+            if (image.src.match("./images/espas_024-dogru.png"))
+                image.src = "./images/espas_031-intro.png";
+            if (image.src.match("./images/espas_034-dogru.png"))
+                image.src = "./images/espas_041-intro.png";
+            if (image.src.match("./images/espas_044-dogru.png"))
+                image.src = "./images/espas_00.png";
+        });
+        // common behavior
+        document.addEventListener('keypress', (event) => {
+            const keyName = event.key;
+            if (keyName == 'd')
+                changeImagePositive();
+            if (keyName == 'y')
+                changeImageNegative();
+        });
+        // when the answer is correct
+        function changeImagePositive() {
+            if (image.src.includes("espas_01"))
+                image.src = "./images/espas_014-dogru.png";
+            if (image.src.includes("espas_02"))
+                image.src = "./images/espas_024-dogru.png";
+            if (image.src.includes("espas_03"))
+                image.src = "./images/espas_034-dogru.png";
+            if (image.src.includes("espas_04"))
+                image.src = "./images/espas_044-dogru.png";
+        }
+        // when the answer is wrong
+        function changeImageNegative() {
+            if (image.src.match("./images/espas_011-intro.png")) {
+                image.src = "./images/espas_012-hata01.png";
+                return;
+            }
+            if (image.src.match("./images/espas_012-hata01.png")) {
+                image.src = "./images/espas_013-hata02.png";
+                return;
+            }
+            if (image.src.match("./images/espas_013-hata02.png")) {
+                image.src = "./images/espas_014-dogru.png";
+                return;
+            }
+
+            if (image.src.match("./images/espas_021-intro.png")) {
+                image.src = "./images/espas_022-hata01.png";
+                return;
+            }
+            if (image.src.match("./images/espas_022-hata01.png")) {
+                image.src = "./images/espas_023-hata02.png";
+                return;
+            }
+            if (image.src.match("./images/espas_023-hata02.png")) {
+                image.src = "./images/espas_024-dogru.png";
+                return;
+            }
+
+            if (image.src.match("./images/espas_031-intro.png")) {
+                image.src = "./images/espas_032-hata01.png";
+                return;
+            }
+            if (image.src.match("./images/espas_032-hata01.png")) {
+                image.src = "./images/espas_034-dogru.png";
+                return;
+            }
+            if (image.src.match("./images/espas_033-hata02.png")) {
+                image.src = "./images/espas_041-intro.png";
+                return;
+            }
+
+            if (image.src.match("./images/espas_041-intro.png")) {
+                image.src = "./images/espas_042-hata01.png";
+                return;
+            }
+            if (image.src.match("./images/espas_042-hata01.png")) {
+                image.src = "./images/espas_043-hata02.png";
+                return;
+            }
+            if (image.src.match("./images/espas_043-hata02.png")) {
+                image.src = "./images/espas_044-dogru.png";
+                return;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
