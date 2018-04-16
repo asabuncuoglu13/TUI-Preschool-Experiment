@@ -14,9 +14,16 @@
         <img id="image" src="./images/espas_00.png">
     </div>
 
-
     <script>
         'use strict';
+
+        var success = new Audio('./sound/success.mp3');
+        var error = new Audio('./sound/error.mp3');
+        var f1 = new Audio('./sound/f1.mp3');
+        var f2 = new Audio('./sound/f2.mp3');
+        var f3 = new Audio('./sound/f3.mp3');
+        var f4 = new Audio('./sound/f4.mp3');
+
         // next level behaviour
         document.getElementById('image').addEventListener('click', (event) => {
             if (image.src.match("./images/espas_00.png"))
@@ -33,10 +40,26 @@
         // common behavior
         document.addEventListener('keypress', (event) => {
             const keyName = event.key;
-            if (keyName == 'd')
+            if (keyName == 'd') {
+                success.play();
                 changeImagePositive();
-            if (keyName == 'y')
+            }
+            if (keyName == 'y') {
+                error.play();
                 changeImageNegative();
+            }
+            if (keyName == 's' && image.src.match("./images/espas_011-intro.png")) {
+                f1.play();
+            }
+            if (keyName == 's' && image.src.match("./images/espas_021-intro.png")) {
+                f2.play();
+            }
+            if (keyName == 's' && image.src.match("./images/espas_031-intro.png")) {
+                f3.play();
+            }
+            if (keyName == 's' && image.src.match("./images/espas_041-intro.png")) {
+                f4.play();
+            }
         });
         // when the answer is correct
         function changeImagePositive() {
