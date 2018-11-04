@@ -17,50 +17,261 @@
     <script>
         'use strict';
 
-        var success = new Audio('./sound/success.mp3');
+        var count = 0;
+        var o_count = 0;
+        var r_count = 0;
+        var s_count = 0;
+        var l_count = 0;
+        var chapter = 1;
+
+        var success = new Audio("./fb_sounds/Fb12.m4a");
         var error = new Audio('./sound/error.mp3');
         var f1 = new Audio('./sound/f1.mp3');
         var f2 = new Audio('./sound/f2.mp3');
         var f3 = new Audio('./sound/f3.mp3');
         var f4 = new Audio('./sound/f4.mp3');
 
+        var empty_space1 = new Audio("./fb_sounds/Fb1.m4a");
+        var empty_space2 = new Audio("./fb_sounds/Fb2.m4a");
+        var empty_space3 = new Audio("./fb_sounds/Fb3.m4a");
+        var empty_space4 = new Audio("./fb_sounds/Fb4.m4a");
+
+        var recog_fig11 = new Audio("./fb_sounds/Fb5.2.m4a");
+        var recog_fig12 = new Audio("./fb_sounds/Fb5.1.m4a");
+        var recog_fig13 = new Audio("./fb_sounds/Fb5.4.m4a");
+        var recog_fig14 = new Audio("./fb_sounds/Fb5.3.m4a");
+
+        var recog_fig21 = new Audio("./fb_sounds/Fb6.2.m4a");
+        var recog_fig22 = new Audio("./fb_sounds/Fb6.1.m4a");
+        var recog_fig23 = new Audio("./fb_sounds/Fb6.4.m4a");
+        var recog_fig24 = new Audio("./fb_sounds/Fb6.3.m4a");
+
+        var recog_fig31 = new Audio("./fb_sounds/Fb7.2.m4a");
+        var recog_fig32 = new Audio("./fb_sounds/Fb7.1.m4a");
+        var recog_fig33 = new Audio("./fb_sounds/Fb7.4.m4a");
+        var recog_fig34 = new Audio("./fb_sounds/Fb7.3.m4a");
+
+        var recog_fig41 = new Audio("./fb_sounds/Fb8.2.m4a");
+        var recog_fig42 = new Audio("./fb_sounds/Fb8.1.m4a");
+        var recog_fig43 = new Audio("./fb_sounds/Fb8.4.m4a");
+        var recog_fig44 = new Audio("./fb_sounds/Fb8.3.m4a");
+
+        var orientation1 = new Audio("./fb_sounds/Fb9.1.m4a");
+        var orientation2 = new Audio("./fb_sounds/Fb9.2.m4a");
+        var orientation3 = new Audio("./fb_sounds/Fb9.3.m4a");
+        var orientation4 = new Audio("./fb_sounds/Fb9.4.m4a");
+
+        var shape1 = new Audio("./fb_sounds/Fb10.1.m4a");
+        var shape2 = new Audio("./fb_sounds/Fb10.2.m4a");
+        var shape3 = new Audio("./fb_sounds/Fb10.3.m4a");
+        var shape4 = new Audio("./fb_sounds/Fb10.4.m4a");
+        var shape5 = new Audio("./fb_sounds/Fb11.m4a");
+
+        var location11 = new Audio("./fb_sounds/Fb13.2.m4a");
+        var location21 = new Audio("./fb_sounds/Fb13.1.m4a");
+        var location31 = new Audio("./fb_sounds/Fb13.4.m4a");
+        var location41 = new Audio("./fb_sounds/Fb13.3.m4a");
+
+        var location12 = new Audio("./fb_sounds/Fb14.3.m4a");
+        var location22 = new Audio("./fb_sounds/Fb14.1.m4a");
+        var location32 = new Audio("./fb_sounds/Fb14.4.m4a");
+
         // next level behaviour
         document.getElementById('image').addEventListener('click', (event) => {
-            if (image.src.match("./images/espas_00.png"))
+            if (image.src.match("./images/espas_00.png")) {
                 image.src = "./images/espas_011-intro.png";
-            if (image.src.match("./images/espas_014-dogru.png"))
+                chapter = 1;
+                count, o_count, r_count, s_count, l_count = 0;
+            }
+            if (image.src.match("./images/espas_014-dogru.png")) {
                 image.src = "./images/espas_021-intro.png";
-            if (image.src.match("./images/espas_024-dogru.png"))
+                chapter = 2;
+                count, o_count, r_count, s_count, l_count = 0;
+            }
+            if (image.src.match("./images/espas_024-dogru.png")) {
                 image.src = "./images/espas_031-intro.png";
-            if (image.src.match("./images/espas_034-dogru.png"))
+                chapter = 3;
+                count, o_count, r_count, s_count, l_count = 0;
+            }
+            if (image.src.match("./images/espas_034-dogru.png")) {
                 image.src = "./images/espas_041-intro.png";
-            if (image.src.match("./images/espas_044-dogru.png"))
+                chapter = 4;
+                count, o_count, r_count, s_count, l_count = 0;
+            }
+            if (image.src.match("./images/espas_044-dogru.png")) {
                 image.src = "./images/espas_00.png";
+                chapter = 0;
+                count, o_count, r_count, s_count, l_count = 0;
+            }
         });
         // common behavior
         document.addEventListener('keypress', (event) => {
             const keyName = event.key;
-            if (keyName == 'd') {
+            if (keyName == 't') {
                 success.play();
                 changeImagePositive();
             }
-            if (keyName == 'y') {
-                error.play();
-                changeImageNegative();
+            if (keyName == 'e') {
+                if (count == 0) {
+                    empty_space1.play();
+                }
+                if (count == 1) {
+                    empty_space2.play();
+                }
+                if (count == 2) {
+                    empty_space3.play();
+                    changeImageNegative();
+                }
+                if (count == 3) {
+                    empty_space4.play();
+                    changeImageNegative();
+                }
+                count++;
             }
-            if (keyName == 's' && image.src.match("./images/espas_011-intro.png")) {
+
+            if (keyName == 'o') {
+                if (o_count == 0) {
+                    orientation1.play();
+                }
+                if (o_count == 1) {
+                    orientation2.play();
+                }
+                if (o_count == 2) {
+                    orientation3.play();
+                }
+                if (o_count == 3) {
+                    orientation4.play();
+                }
+                o_count++;
+            }
+
+            if (keyName == 's') {
+                if (s_count == 0) {
+                    shape1.play();
+                }
+                if (s_count == 1) {
+                    shape2.play();
+                }
+                if (s_count == 2) {
+                    shape3.play();
+                }
+                if (s_count == 3) {
+                    shape4.play();
+                }
+                if (s_count == 4) {
+                    shape5.play();
+                }
+                s_count++;
+            }
+
+            if (keyName == 'l') {
+                if (l_count == 0) {
+                    if (chapter == 1) {
+                        location11.play();
+                    }
+                    if (chapter == 2) {
+                        location21.play();
+                    }
+                    if (chapter == 3) {
+                        location31.play();
+                    }
+                    if (chapter == 4) {
+                        location41.play();
+                    }
+                }
+
+                if (l_count == 1) {
+                    if (chapter == 1) {
+                        location12.play();
+                    }
+                    if (chapter == 2) {
+                        location22.play();
+                    }
+                    if (chapter == 3) {
+                        location32.play();
+                    }
+                    if (chapter == 4) {
+                       //location42.play();
+                    }
+                }
+                l_count++;
+            }
+
+            if (keyName == 'r') {
+                if (r_count == 0) {
+                    if (chapter == 1) {
+                        recog_fig11.play();
+                    }
+                    if (chapter == 2) {
+                        recog_fig12.play();
+                    }
+                    if (chapter == 3) {
+                        recog_fig13.play();
+                    }
+                    if (chapter == 4) {
+                        recog_fig14.play();
+                    }
+                }
+                if (r_count == 1) {
+                    if (chapter == 1) {
+                        recog_fig21.play();
+                    }
+                    if (chapter == 2) {
+                        recog_fig22.play();
+                    }
+                    if (chapter == 3) {
+                        recog_fig23.play();
+                    }
+                    if (chapter == 4) {
+                        recog_fig24.play();
+                    }
+                }
+                if (r_count == 2) {
+                    if (chapter == 1) {
+                        recog_fig31.play();
+                    }
+                    if (chapter == 2) {
+                        recog_fig32.play();
+                    }
+                    if (chapter == 3) {
+                        recog_fig33.play();
+                    }
+                    if (chapter == 4) {
+                        recog_fig34.play();
+                    }
+                    changeImageNegative();
+                }
+                if (r_count == 3) {
+                    if (chapter == 1) {
+                        recog_fig41.play();
+                    }
+                    if (chapter == 2) {
+                        recog_fig42.play();
+                    }
+                    if (chapter == 3) {
+                        recog_fig43.play();
+                    }
+                    if (chapter == 4) {
+                        recog_fig44.play();
+                    }
+                    changeImageNegative();
+                }
+                r_count++;
+            }
+            if (keyName == 'i' && image.src.match("./images/espas_011-intro.png")) {
                 f1.play();
             }
-            if (keyName == 's' && image.src.match("./images/espas_021-intro.png")) {
+            if (keyName == 'i' && image.src.match("./images/espas_021-intro.png")) {
                 f2.play();
             }
-            if (keyName == 's' && image.src.match("./images/espas_031-intro.png")) {
+            if (keyName == 'i' && image.src.match("./images/espas_031-intro.png")) {
                 f3.play();
             }
-            if (keyName == 's' && image.src.match("./images/espas_041-intro.png")) {
+            if (keyName == 'i' && image.src.match("./images/espas_041-intro.png")) {
                 f4.play();
             }
         });
+
         // when the answer is correct
         function changeImagePositive() {
             if (image.src.includes("espas_01"))
@@ -72,6 +283,7 @@
             if (image.src.includes("espas_04"))
                 image.src = "./images/espas_044-dogru.png";
         }
+
         // when the answer is wrong
         function changeImageNegative() {
             if (image.src.match("./images/espas_011-intro.png")) {
