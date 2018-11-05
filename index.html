@@ -14,6 +14,8 @@
         <img id="image" src="./images/espas_00.png">
     </div>
 
+    <img id="orientation" class="anim" src="./pieces/arc.png" style="visibility: hidden">
+
     <script>
         'use strict';
 
@@ -103,6 +105,7 @@
                 chapter = 0;
                 count, o_count, r_count, s_count, l_count = 0;
             }
+            document.getElementById("orientation").style.visibility = "hidden";
         });
         // common behavior
         document.addEventListener('keypress', (event) => {
@@ -133,14 +136,28 @@
                 if (o_count == 0) {
                     orientation1.play();
                 }
-                if (o_count == 1) {
+                else if (o_count == 1) {
                     orientation2.play();
                 }
-                if (o_count == 2) {
+                else if (o_count == 2) {
                     orientation3.play();
+                    if (chapter == 1) {
+                        document.getElementById("orientation").style.visibility = "visible";
+                    }
+                    if(chapter == 2) {
+                        document.getElementById("orientation").src = "./pieces/stick.png"
+                        document.getElementById("orientation").style.visibility = "visible";
+                    }
+                    if(chapter == 4) {
+                        document.getElementById("orientation").src = "./pieces/arc.png"
+                        document.getElementById("orientation").style.visibility = "visible";
+                    }
                 }
-                if (o_count == 3) {
+                else if (o_count == 3) {
                     orientation4.play();
+                }
+                else {
+                    document.getElementById("orientation").style.visibility = "hidden";
                 }
                 o_count++;
             }
@@ -191,7 +208,7 @@
                         location32.play();
                     }
                     if (chapter == 4) {
-                       //location42.play();
+                        //location42.play();
                     }
                 }
                 l_count++;
