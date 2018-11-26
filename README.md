@@ -1,8 +1,18 @@
-# HAPPERN-Tangram-Experiment
+# HAPPERN-Preschool TUI Experiment
+## Frobel Wizard of Oz System. 
 
-Frobel Wizard of Oz System. 
+Press 'i', to listen introductory story at the beginning of each level,
 
-Press 'd', when kid do TRUE,
-Press 'y', when kid do FALSE,
-Press 's', to listen story at the beginning of each level,
-Click on anywhere to pass to next level.
+Press 't', when the piece is in right place,
+
+Press 'o', when the orientation is wrong,
+
+Press 's', when the shape is wrong,
+
+Press 'l', when the location is wrong,
+
+Press 'r', when kid recognized the character wrong,
+
+Click anywhere on the screen to pass to next level.
+
+All the sound files are in Turkish. If you want to change the language, you can replace it from the **fb_sounds** folder
