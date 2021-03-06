@@ -1,4 +1,7 @@
 # HAPPERN-Preschool TUI Experiment
+
+The wizard of oz interface to conduct some of the user studies of this work: [https://www.sciencedirect.com/science/article/abs/pii/S2212868916300812](https://www.sciencedirect.com/science/article/abs/pii/S2212868916300812)
+
 ## Frobel Wizard of Oz System. 
 
 Press 'i', to listen introductory story at the beginning of each level,
